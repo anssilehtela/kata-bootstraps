@@ -21,10 +21,14 @@ describe 'tictactoe' do
     end
 
     context 'when making moves' do
-      it 'valid gets added to board' do
-        expect(game.make_a_move('1','a','x')).to be true
-        game.print
+      it 'adds valid to board' do
+        expect(game.try_move('1','a','x')).to be true
       end
+
+      it 'rejected invalid input' do
+        expect(game.try_move('4','f','x')).to be true
+      end
+
     end
 
     it 'has no winning lines' do
