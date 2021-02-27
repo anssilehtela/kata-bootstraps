@@ -3,3 +3,5 @@ source 'https://rubygems.org'
 
 # Gems
 gem 'rspec'
+gem 'rubocop'
+gem 'pry'
