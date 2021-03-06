@@ -25,8 +25,9 @@ describe 'tictactoe' do
         expect(game.try_move('1','a','x')).to be true
       end
 
-      it 'rejected invalid input' do
-        expect(game.try_move('4','f','x')).to be true
+      it 'rejects invalid input' do
+        expect(game.try_move('4','f','x')).to be false
+        expect(game.try_move('1',' ','x')).to be false
       end
 
     end

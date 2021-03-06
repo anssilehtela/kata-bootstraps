@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 require 'pry'
+require_relative 'mylogger'
 
 class Tictactoe
   class InvalidInput < StandardError
@@ -9,10 +9,12 @@ class Tictactoe
   def initialize
     @board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     @moves = 9
+    @logger = Mylogger.new('TicTacToe')
   end
 
   def print
     puts printable_board
+    @logger.log("printed board")
   end
 
   def try_move(x, y, mark)
@@ -27,6 +29,7 @@ class Tictactoe
 
   def mark(x, y, mark)
     @board[x][y] = mark.downcase
+    logger.log("Added mark #{mark} to coordinates #{x} and #{y}")
   end
 
   def translate_x(x)
